@@ -4,21 +4,21 @@
         <div class="col col-sm-6">
             <div class="card mb-3">
                 <div class="card-header">
-                    Grafico de barras
+                    Infracciones de transito registradas por mes
                 </div>
                 <div class="card-body">
                     <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                     </canvas>
                 </div>
-                <div class="card-footer">
-                    <button class="btn btn-info btn-sm" (click)="randomize()">Actualizar</button>
-                </div>
+               <div class="card-footer"> 
+                    <button class="btn btn-info btn-sm" (click)="randomize()">Actualizar</button> 
+                </div> 
             </div>
         </div>
         <div class="col col-sm-6">
             <div class="card mb-3">
                 <div class="card-header">
-                    Grafico de anillo
+                    Porcentaje de utilizacion del presupuesto de barrido
                 </div>
                 <div class="card-body">
                     <canvas baseChart height="180px" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">

@@ -31,17 +31,17 @@ export class ChartsComponent implements OnInit {
     public barChartLegend: boolean = true;
 
     public barChartData: any[] = [
-        { data: [10, 20, 30, 40, 50, 60, 70], label: 'Cantidad de accidentes' },
-        { data: [0, 48, 40, 19, 86, 27, 90], label: 'Cantidad de visitantes por dia' }
+        { data: [0, 100, 50, 300, 800, 500, 600, 700, 400, 350, 560, 1200 ], label: 'Cantidad de infracciones' },
+        { data: [79, 48, 40, 19, 86, 27, 90, 240, 500, 1200, 30], label: 'Cantidad de visitantes por mes' }
     ];
 
     // Grafico de anillo
     public doughnutChartLabels: string[] = [
-        'Download Sales',
-        'In-Store Sales',
-        'Mail-Order Sales'
+        'Barrido',
+        'Recoleccion de basura',
+        'Desmalezamiento'
     ];
-    public doughnutChartData: number[] = [350, 450, 100];
+    public doughnutChartData: number[] = [20, 45, 35];
     public doughnutChartType: string = 'doughnut';
 
     // Radar
