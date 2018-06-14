@@ -53,7 +53,7 @@ export class ChartsComponent implements OnInit {
     //    'Desmalezamiento'
     //];
 
-    public doughnutChartLabels: any[] = [this.listado];
+    public doughnutChartLabels: any[] = [];
 
     public doughnutChartData: number[] = [20, 45, 35];
     public doughnutChartType: string = 'doughnut';
@@ -181,6 +181,6 @@ export class ChartsComponent implements OnInit {
         
     ngOnInit() {
         this.limpiezaSer.listado_limpieza()
-            .then(limpieza => this.listado = limpieza);
+            .then(listado => this.listado = listado);
     }
 }
