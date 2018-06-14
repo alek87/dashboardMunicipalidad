@@ -16,13 +16,19 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from rest_framework.routers import DefaultRouter
-from transito.views import InfraccionViewSet
+from transito.views import (
+	InfraccionDetailAPIView,
+	InfraccionListAPIView,
+	InfraccionUpdateAPIView,
+	InfraccionDeleteAPIView,
+	InfraccionCreateAPIView,
+	)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', InfraccionListAPIView.as_view(), name='list'),
+    url(r'^create/$', InfraccionCreateAPIView.as_view(), name='create'),
+    url(r'^(?P<nro_alta>[\w-]+)/$', InfraccionDetailAPIView.as_view(), name='detail'),
+    url(r'^(?P<nro_alta>[\w-]+)/edit/$', InfraccionUpdateAPIView.as_view(), name='update'),
+    url(r'^(?P<nro_alta>[\w-]+)/delete/$', InfraccionDeleteAPIView.as_view(), name='delete'),
 ]
-
-router = DefaultRouter()
-router.register(prefix='transito', viewset=InfraccionViewSet)
-urlpatterns = router.urls
