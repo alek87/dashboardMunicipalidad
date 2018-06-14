@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 
+import { LimpiezaService } from '../../limpieza.service';
+
 @Component({
     selector: 'app-charts',
     templateUrl: './charts.component.html',
@@ -8,7 +10,16 @@ import { routerTransition } from '../../router.animations';
     animations: [routerTransition()]
 })
 export class ChartsComponent implements OnInit {
-    // bar chart
+    // bar char
+
+    public listado: any
+    
+    constructor(private limpiezaSer: LimpiezaService) {}
+
+    
+
+
+
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
         responsive: true
@@ -36,11 +47,14 @@ export class ChartsComponent implements OnInit {
     ];
 
     // Grafico de anillo
-    public doughnutChartLabels: string[] = [
-        'Barrido',
-        'Recoleccion de basura',
-        'Desmalezamiento'
-    ];
+    //public doughnutChartLabels: string[] = [
+    //    'Barrido',
+    //    'Recoleccion de basura',
+    //    'Desmalezamiento'
+    //];
+
+    public doughnutChartLabels: any[] = [this.listado];
+
     public doughnutChartData: number[] = [20, 45, 35];
     public doughnutChartType: string = 'doughnut';
 
@@ -163,7 +177,10 @@ export class ChartsComponent implements OnInit {
          */
     }
 
-    constructor() {}
-
-    ngOnInit() {}
+    //constructor(private limpiezaSer: LimpiezaService) {}
+        
+    ngOnInit() {
+        this.limpiezaSer.listado_limpieza()
+            .then(limpieza => this.listado = limpieza);
+    }
 }
