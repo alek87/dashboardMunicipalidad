@@ -7,18 +7,10 @@ import {HttpHeaders} from  '@angular/common/http';
 })
 export class TransitoService {
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Access-Control-Allow-Origin':'*',
-      'Access-Control-Allow-Headers':'Content-Type',
-      'Access-Control-Allow-Methods':'GET, POST, OPTIONS',
-
-    })
-  }
-
   constructor (private http: HttpClient) { }
 
   listado_infracciones(){
-    return this.http.get('http://localhost:8000/transito/', this.httpOptions).toPromise();
+    return this.http.get('http://localhost:8000/');
   }
+
 }
