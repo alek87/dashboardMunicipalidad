@@ -12,9 +12,9 @@ import { LimpiezaService } from '../../limpieza.service';
 export class ChartsComponent implements OnInit {
     // bar char
 
-    public listado: any
+    //public listado: any
     
-    constructor(private limpiezaSer: LimpiezaService) {}
+    constructor() {}
 
     
 
@@ -46,14 +46,14 @@ export class ChartsComponent implements OnInit {
         { data: [79, 48, 40, 19, 86, 27, 90, 240, 500, 1200, 30], label: 'Cantidad de visitantes por mes' }
     ];
 
-    // Grafico de anillo
-    //public doughnutChartLabels: string[] = [
-    //    'Barrido',
-    //    'Recoleccion de basura',
-    //    'Desmalezamiento'
-    //];
+     //Grafico de anillo
+    public doughnutChartLabels: string[] = [
+        'Barrido',
+        'Recoleccion de basura',
+        'Desmalezamiento'
+    ];
 
-    public doughnutChartLabels: any[] = [];
+    //public doughnutChartLabels: any[] = [];
 
     public doughnutChartData: number[] = [20, 45, 35];
     public doughnutChartType: string = 'doughnut';
@@ -178,9 +178,11 @@ export class ChartsComponent implements OnInit {
     }
 
     //constructor(private limpiezaSer: LimpiezaService) {}
+
+   
         
     ngOnInit() {
-        this.limpiezaSer.listado_limpieza()
-            .then(listado => this.listado = listado);
+        ///this.limpiezaSer.listado_limpieza()
+         //   .then(listado => this.listado = listado);
     }
 }

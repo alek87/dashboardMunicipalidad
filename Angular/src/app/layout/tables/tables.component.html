@@ -7,27 +7,15 @@
                 <table class="card-body table table-hover table-bordered">
                     <thead>
                     <tr>
-                        <th>#</th>
                         <th>Nombre del servicio</th>
-                        <th>Monto</th>
+                        <th>Monto ($)</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>{{listado[0].Nombre}}</td>
-                        <td>{{listado[0].Monto}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>{{listado[1].Nombre}}</td>
-                        <td>{{listado[1].Monto}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td >{{listado[2].Nombre}} </td>
-                        <td>{{listado[2].Monto}}</td>
-                    </tr>
+                        <tr *ngFor="let l of listado">
+                            <td>{{l.Nombre}}</td>
+                            <td>{{l.Monto}}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

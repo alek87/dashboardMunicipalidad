@@ -18,5 +18,8 @@ export class TablesComponent implements OnInit {
     ngOnInit() {
         this.limpiezaSer.listado_limpieza()
             .then(listado => this.listado = listado);
+
     }
+
+    
 }
