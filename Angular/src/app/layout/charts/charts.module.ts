@@ -8,9 +8,10 @@ import { PageHeaderModule } from '../../shared';
 import { TransitoComponent } from '../../transito/transito.component';
 import { LimpiezaComponent } from '../../limpieza/limpieza.component';
 import { LimpiezaService } from '../../limpieza.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-    imports: [CommonModule, Ng2Charts, ChartsRoutingModule, PageHeaderModule],
+    imports: [CommonModule, Ng2Charts, ChartsRoutingModule, PageHeaderModule, FormsModule, ReactiveFormsModule],
     declarations: [ChartsComponent, TransitoComponent, LimpiezaComponent],
     providers: [LimpiezaService]
 })

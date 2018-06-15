@@ -7,10 +7,23 @@ import {HttpHeaders} from  '@angular/common/http';
 })
 export class TransitoService {
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+    })
+  };
+
   constructor (private http: HttpClient) { }
 
   listado_infracciones(){
     return this.http.get('http://localhost:8000/');
   }
+
+
+  crearInfraccion(infraccion){
+    let body = JSON.stringify(infraccion);
+    return  this.http.post('http://localhost:8000/create/', body, this.httpOptions);
+  }
+
 
 }
