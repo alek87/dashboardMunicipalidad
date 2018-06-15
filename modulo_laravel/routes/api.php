@@ -17,13 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/api/ver', function () {
-   return ['status'=>'success'];
-})->middleware('cors');
 
-//Route::get('/obtener/{id}', 'PresupuestoController@test');
-Route::get('/ver', 'PresupuestoController@index');
-Route::get('/obtener/{presupuesto}', 'PresupuestoController@show');
-Route::post('/crear', 'PresupuestoController@store');
-Route::put('/actualizar/{presupuesto}', 'PresupuestoController@update');
-Route::delete('/borrar/{presupuesto}', 'PresupuestoController@delete');
+Route::get('/presupuestos', ['middleware' => 'cors','uses' => 'PresupuestoController@index']);
+Route::get('/presupuestos/{presupuesto}', ['middleware' => 'cors','uses' => 'PresupuestoController@show']);
+Route::post('/presupuestos', ['middleware' => 'cors','uses' => 'PresupuestoController@store']);
+Route::put('/presupuestos/{presupuesto}', ['middleware' => 'cors','uses' => 'PresupuestoController@update']);
+Route::delete('/presupuestos/{presupuesto}', ['middleware' => 'cors','uses' => 'PresupuestoController@delete']);
+
+

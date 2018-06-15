@@ -28,6 +28,25 @@ class PresupuestoController extends Controller
 
     public function store(Request $request)
     {
+        
+        if (!is_array($request->all())) {
+            return ['error' => 'request must be an array'];
+        }
+
+        // Reglas de validación
+        $rules = [
+            'Nombre'      => 'required',
+            'Monto'     => 'required'
+            ];
+
+        $validator = \Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return [
+                'created' => false,
+                'errors'  => $validator->errors()->all()
+            ];
+        }
+            
         $presupuesto = Presupuesto::create($request->all());
         return response()->json($presupuesto, 201);
     }

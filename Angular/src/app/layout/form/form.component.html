@@ -17,14 +17,20 @@
                 </fieldset>
 
                 <div class="form-group">
-                    <label>Static Control</label>
+                    <label>Nombre del servicio</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                     <p class="form-control-static">email@example.com</p>
                 </div>
 
-                <fieldset class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <input type="file" class="form-control-file" id="exampleInputFile">
-                </fieldset>
+                <div class="form-group" >
+                    <input type = "text" name = "Nombre" placeholder = "Nombre del servicio" ngModel>
+                    <br/>
+                    <input type = "number" name = "Monto" placeholder = "Monto del servicio" ngModel>
+                    <br/>
+                    <input type = "submit" value = "Enviar">
+                 </div>
+
+
 
                 <fieldset class="form-group">
                     <label>Text area</label>
