@@ -19,6 +19,6 @@ export class LimpiezaService {
   constructor (private http: HttpClient) { }
 
   listado_limpieza(){
-    return this.http.get('http://localhost:8000/api/ver', this.httpOptions).toPromise();
+    return this.http.get('http://localhost:8000/api/presupuestos', this.httpOptions).toPromise();
   }
 }
