@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', InfraccionListAPIView.as_view(), name='list'),
     url(r'^create/$', InfraccionCreateAPIView.as_view(), name='create'),
-    url(r'^(?P<nro_alta>[\w-]+)/$', InfraccionDetailAPIView.as_view(), name='detail'),
-    url(r'^(?P<nro_alta>[\w-]+)/edit/$', InfraccionUpdateAPIView.as_view(), name='update'),
-    url(r'^(?P<nro_alta>[\w-]+)/delete/$', InfraccionDeleteAPIView.as_view(), name='delete'),
+    url(r'^(?P<nro_alta>[0-9]+)/$', InfraccionDetailAPIView.as_view(), name='detail'),
+    url(r'^(?P<nro_alta>[0-9]+)/edit/$', InfraccionUpdateAPIView.as_view(), name='update'),
+    url(r'^(?P<nro_alta>[0-9]+)/delete/$', InfraccionDeleteAPIView.as_view(), name='delete'),
 ]
