@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   template: `
     <div class="row">
         <div class="col-lg-6">
-          <h1 align="center">ALTA DE INFRACCIÓN</h1>
           <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
             <div class="form-group">
                 <label>N° de Alta</label>
