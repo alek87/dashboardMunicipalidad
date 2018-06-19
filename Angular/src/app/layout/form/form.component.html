@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-lg-6">
-
+            <!--
             <form role="form">
                 <fieldset class="form-group">
                     <label>Text Input</label>
@@ -130,8 +130,37 @@
                 <button type="reset" class="btn btn-secondary">Reset Button</button>
 
             </form>
+        -->
+
+
+
+
+
+            
+            <form [formGroup]="registerForm2" (ngSubmit)="onSubmit(registerForm2.value)">
+                
+                <div class="form-group">
+                    <label class="form-control-label" for="inputSuccess">Nombre del servicio</label>
+                    <input type="text" class="form-control form-control-success" formControlName="Nombre" id="inputSuccess" [ngClass]="{ 'is-invalid': submitted && f.Nombre.errors }" placeholder="Nombre">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="inputWarning">Monto del servicio</label>
+                    <input type="number" class="form-control form-control-warning" formControlName="Monto" id="inputWarning" [ngClass]="{ 'is-invalid': submitted && f.Monto.errors }" placeholder="0.00">
+                </div>
+                
+                <button type="submit" class="btn btn-primary" > Enviar</button>
+            </form>
+
+            <br>
+            <br>
+        
+
+
 
         </div>
+        
+
         <div class="col-lg-6">
             <h4>Disabled Form States</h4>
 
@@ -233,6 +262,7 @@
             <p>For complete documentation, please visit <a target="_blank" href="http://v4-alpha.getbootstrap.com/components/forms/">Bootstrap's Form Documentation</a>.</p>
 
         </div>
+    
+
     </div>
-    <!-- /.row -->
 </div>

@@ -7,6 +7,7 @@ import {HttpHeaders} from  '@angular/common/http';
 })
 export class LimpiezaService {
 
+  /*
   httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin':'*',
@@ -15,11 +16,25 @@ export class LimpiezaService {
 
     })
   }
+*/
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+    })
+  };
 
   constructor (private http: HttpClient) { }
   
   listado_limpieza(){
     return this.http.get('http://localhost:8000/api/presupuestos', this.httpOptions).toPromise();
+  }
+
+  agregar_servicio(service){
+    //build header options
+    let body = JSON.stringify(service);
+    return  this.http.post('http://localhost:8000/api/presupuestos/', body, this.httpOptions);
+
+
   }
 
 
