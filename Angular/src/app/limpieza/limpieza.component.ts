@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {LimpiezaService} from '../limpieza.service';
+
 
 @Component({
   selector: 'app-limpieza',
@@ -7,13 +7,11 @@ import {LimpiezaService} from '../limpieza.service';
   styleUrls: ['./limpieza.component.scss']
 })
 export class LimpiezaComponent implements OnInit {
-  limpieza: any
-
-  constructor(private service: LimpiezaService) { }
+  
+  constructor() { }
 
   ngOnInit() {
-    this.service.listado_limpieza()
-      .then(limpieza => this.limpieza = limpieza);
+  
   }
 
 }

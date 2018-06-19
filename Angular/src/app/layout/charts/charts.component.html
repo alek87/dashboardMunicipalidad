@@ -21,8 +21,11 @@
                     Porcentaje de utilizacion del presupuesto de barrido
                 </div>
                 <div class="card-body">
-                    <canvas baseChart height="180px" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                   <!-- <div *ngfor let i of listado> -->
+                        <canvas baseChart height="180px" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        </canvas>
+                    <!--</div> -->
+                    
                 </div>
             </div>
         </div>

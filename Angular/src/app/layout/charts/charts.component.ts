@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 
 import { LimpiezaService } from '../../limpieza.service';
+import {LimpiezaListado} from '../../limpiezaListado';
 
 @Component({
     selector: 'app-charts',
@@ -13,8 +14,11 @@ export class ChartsComponent implements OnInit {
     // bar char
 
     //public listado: any
+    public listado:  Array<LimpiezaListado> = [];
+    public monto: number[] = [];
     
-    constructor() {}
+    
+    //constructor() {}
 
     
 
@@ -42,20 +46,22 @@ export class ChartsComponent implements OnInit {
     public barChartLegend: boolean = true;
 
     public barChartData: any[] = [
-        { data: [0, 100, 50, 300, 800, 500, 600, 700, 400, 350, 560, 1200 ], label: 'Cantidad de infracciones' },
+        { data: this.monto, label: 'Presupuesto utilizado en limpieza' },
         { data: [79, 48, 40, 19, 86, 27, 90, 240, 500, 1200, 30], label: 'Cantidad de visitantes por mes' }
     ];
 
      //Grafico de anillo
+     
     public doughnutChartLabels: string[] = [
         'Barrido',
         'Recoleccion de basura',
         'Desmalezamiento'
     ];
 
-    //public doughnutChartLabels: any[] = [];
+    //public doughnutChartLabels: any[] = ;
 
-    public doughnutChartData: number[] = [20, 45, 35];
+    //public doughnutChartData: number[] = [20, 45, 35];
+    public doughnutChartData: number[] = this.monto;
     public doughnutChartType: string = 'doughnut';
 
     // Radar
@@ -177,12 +183,45 @@ export class ChartsComponent implements OnInit {
          */
     }
 
-    //constructor(private limpiezaSer: LimpiezaService) {}
+    constructor(private service: LimpiezaService) {}
+
+    public  listado_limpieza(){
+        this.service.listado_limpieza().subscribe((data:  Array<LimpiezaListado>) => {
+            this.listado  =  data;
+        });
+    }
+
+
+    
+    
+    public separacion_json(){
+      
+        /*
+        for (var i; i<this.listado.length; i++ ){
+            for
+        }
+        */
+        //let monto: number[] = [];
+        //let a:LimpiezaListado = JSON.parse(this.listado);
+        //for(let result of this.listado){
+        //    this.monto.push(result.Monto);
+       // }
+       
+        
+        
+        
+       
+        
+    }
 
    
+
+
         
     ngOnInit() {
         ///this.limpiezaSer.listado_limpieza()
          //   .then(listado => this.listado = listado);
+         this.service.listado_limpieza();
+         this.separacion_json();
     }
 }
