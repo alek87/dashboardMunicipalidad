@@ -1,0 +1,2 @@
+class Turista < ApplicationRecord
+end
