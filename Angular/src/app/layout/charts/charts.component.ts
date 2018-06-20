@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 
 import { LimpiezaService } from '../../limpieza.service';
+import { TuristaService } from '../../turista.service';
 
 @Component({
     selector: 'app-charts',
@@ -13,12 +14,8 @@ export class ChartsComponent implements OnInit {
     // bar char
 
     //public listado: any
-    
-    constructor() {}
-
-    
-
-
+    public listado:  any;
+    public turistas: any;
 
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
@@ -42,20 +39,20 @@ export class ChartsComponent implements OnInit {
     public barChartLegend: boolean = true;
 
     public barChartData: any[] = [
-        { data: [0, 100, 50, 300, 800, 500, 600, 700, 400, 350, 560, 1200 ], label: 'Cantidad de infracciones' },
-        { data: [79, 48, 40, 19, 86, 27, 90, 240, 500, 1200, 30], label: 'Cantidad de visitantes por mes' }
     ];
 
      //Grafico de anillo
+     
     public doughnutChartLabels: string[] = [
         'Barrido',
         'Recoleccion de basura',
         'Desmalezamiento'
     ];
 
-    //public doughnutChartLabels: any[] = [];
+    //public doughnutChartLabels: any[] = ;
 
     public doughnutChartData: number[] = [20, 45, 35];
+    //public doughnutChartData: number[] = this.monto;
     public doughnutChartType: string = 'doughnut';
 
     // Radar
@@ -83,18 +80,7 @@ export class ChartsComponent implements OnInit {
     public pieChartData: number[] = [300, 500, 100];
     public pieChartType: string = 'pie';
 
-    // PolarArea
-    public polarAreaChartLabels: string[] = [
-        'Download Sales',
-        'In-Store Sales',
-        'Mail Sales',
-        'Telesales',
-        'Corporate Sales'
-    ];
-    public polarAreaChartData: number[] = [300, 500, 100, 40, 120];
-    public polarAreaLegend: boolean = true;
-
-    public polarAreaChartType: string = 'polarArea';
+    
 
     // lineChart
     public lineChartData: Array<any> = [
@@ -177,12 +163,23 @@ export class ChartsComponent implements OnInit {
          */
     }
 
-    //constructor(private limpiezaSer: LimpiezaService) {}
+    constructor(private service: LimpiezaService, private serviceT: TuristaService) {}
 
-   
+    public  servicios(){
+        this.service.listado_limpieza().subscribe((data:  Array<any>) => {
+            var montoLimpieza = data.map(item=>item.Monto);
+
+            this.serviceT.listado_turista().subscribe((data:  Array<any>) => {
+                var cantidadTuristas = data.map(item=>item.cantidad);
+            //console.log(l);
+            this.barChartData.push({data: montoLimpieza, label: 'Presupuesto utilizado en limpieza' },{data: cantidadTuristas, label: 'Cantidad de turistas' });
         
+            
+            });
+        });
+    }
+
     ngOnInit() {
-        ///this.limpiezaSer.listado_limpieza()
-         //   .then(listado => this.listado = listado);
+         this.servicios();
     }
 }

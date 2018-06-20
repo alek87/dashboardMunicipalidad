@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 
-//import { LimpiezaService } from '../../limpieza.service';
+
 
 @Component({
     selector: 'app-tables',
@@ -11,19 +11,15 @@ import { routerTransition } from '../../router.animations';
 })
 export class TablesComponent implements OnInit {
 
-    ngOnInit() {}
+    //ngOnInit() {}
 
-    /*
-    public listado: any
+    
+    
 
-    constructor(private limpiezaSer: LimpiezaService) {}
+    constructor() {}
 
 
     ngOnInit() {
-        this.limpiezaSer.listado_limpieza()
-            .then(listado => this.listado = listado);
-
     }
-    */
-
+    
 }

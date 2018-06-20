@@ -15,7 +15,7 @@ class CrearTablaPresupuesto extends Migration
     {
         Schema::create('presupuesto', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Nombre', 80);
+            $table->string('Mes', 50);
             $table->decimal('Monto',8,2)->unsigned()->default(0)->nullable();
         });
     }

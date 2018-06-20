@@ -15,7 +15,7 @@ class Presupuesto extends JsonResource
     public function toArray($request)
     {
         return [
-            'Nombre' => $this->Nombre,
+            'Mes' => $this->Mes,
             'Monto' => $this->Monto,
         ];
     }

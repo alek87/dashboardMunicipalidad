@@ -6,8 +6,8 @@
                 <div class="card-header">
                     Infracciones de transito registradas por mes
                 </div>
-                <div class="card-body">
-                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                <div *ngIf="barChartData.length >= 1" class="card-body">
+                    <canvas  baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                     </canvas>
                 </div>
                <div class="card-footer">
@@ -21,8 +21,11 @@
                     Porcentaje de utilizacion del presupuesto de barrido
                 </div>
                 <div class="card-body">
-                    <canvas baseChart height="180px" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                   <!-- <div *ngfor let i of listado> -->
+                        <canvas baseChart height="180px" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        </canvas>
+                    <!--</div> -->
+                    
                 </div>
             </div>
         </div>
@@ -53,15 +56,6 @@
     </div>
     <div class="row">
         <div class="col col-sm-6">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Polar Area Chart
-                </div>
-                <div class="card-body">
-                    <canvas baseChart height="130px" [data]="polarAreaChartData" [labels]="polarAreaChartLabels" [legend]="polarAreaLegend" [chartType]="polarAreaChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
-                </div>
-            </div>
         </div>
         <div class="col col-sm-6">
             <div class="card mb-3">

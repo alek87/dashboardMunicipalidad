@@ -8,7 +8,7 @@ class Presupuesto extends Model
 {
     
     protected $table = 'presupuesto';
-    protected $fillable = ['Nombre', 'Monto'];
+    protected $fillable = ['Mes', 'Monto'];
     public $timestamps = false;
 
 

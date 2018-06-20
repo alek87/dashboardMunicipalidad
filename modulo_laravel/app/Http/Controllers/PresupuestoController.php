@@ -35,7 +35,7 @@ class PresupuestoController extends Controller
 
         // Reglas de validación
         $rules = [
-            'Nombre'      => 'required',
+            'Mes'      => 'required',
             'Monto'     => 'required'
             ];
 

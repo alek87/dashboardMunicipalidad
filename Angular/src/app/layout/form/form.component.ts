@@ -13,6 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class FormComponent implements OnInit {
     registerForm2: FormGroup;
     submitted = false;
+    active = true;
 
     constructor(private service: LimpiezaService, private formBuilder: FormBuilder) {}
 
@@ -39,9 +40,16 @@ export class FormComponent implements OnInit {
 
     }
 
+    limpiar() {
+   //     this.registerForm2.: "";
+   //     Manta:"";
+        this.active=false;
+        setTimeout(() => this.active = true, 0);
+    }
+
     ngOnInit() {
         this.registerForm2 = this.formBuilder.group({
-            Nombre: ['', Validators.required],
+            Mes: ['', Validators.required],
             Monto: ['', Validators.required],
         });
     }
