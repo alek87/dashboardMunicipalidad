@@ -6,11 +6,11 @@ import { PageHeaderModule } from './../../shared';
 
 import { TransitoComponent } from '../../transito/transito.component';
 
-//import { LimpiezaService } from '../../limpieza.service';
+
 
 @NgModule({
     imports: [CommonModule, TablesRoutingModule, PageHeaderModule],
     declarations: [TablesComponent, TransitoComponent],
-    //providers: [LimpiezaService]
+    
 })
 export class TablesModule {}
