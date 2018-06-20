@@ -174,102 +174,34 @@
         
 
         <div class="col-lg-6">
-            <h4>Disabled Form States</h4>
-
-            <form role="form">
-
-                <fieldset disabled="">
-
-                    <div class="form-group">
-                        <label for="disabledSelect">Disabled input</label>
-                        <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input" disabled="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="disabledSelect">Disabled select menu</label>
-                        <select id="disabledSelect" class="form-control">
-                            <option>Disabled select</option>
-                        </select>
-                    </div>
-
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"> Disabled Checkbox
-                        </label>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Disabled Button</button>
-
-                </fieldset>
-
-            </form>
-            <br>
-
-            <h4>Form Validation</h4>
-
-            <form role="form">
-
-                <div class="form-group has-success">
-                    <label class="form-control-label" for="inputSuccess">Input with success</label>
-                    <input type="text" class="form-control form-control-success" id="inputSuccess">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Nuevo registro de turistas
                 </div>
-
-                <div class="form-group has-warning">
-                    <label class="form-control-label" for="inputWarning">Input with warning</label>
-                    <input type="text" class="form-control form-control-warning" id="inputWarning">
+                <div class="card-body">
+                    <form [formGroup]="registerFormT" (ngSubmit)="onSubmitT(registerFormT.value)">
+                    
+                        <div class="form-group">
+                            <label class="form-control-label" for="inputSuccess">Mes</label>
+                            <input type="text" class="form-control form-control-success" formControlName="mes" id="inputSuccess" [ngClass]="{ 'is-invalid': submitted && ft.mes.errors }" placeholder="Mes">
+                            <div *ngIf="submitted && ft.mes.errors" class="invalid-feedback">
+                                    <div *ngIf="ft.mes.errors.required">El nombre del mes es obligatorio</div>
+                            </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <label class="form-control-label" for="inputWarning">Cantidad de turistas</label>
+                            <input type="number" class="form-control form-control-warning" formControlName="cantidad" id="inputWarning" [ngClass]="{ 'is-invalid': submitted && ft.cantidad.errors }" placeholder="0">
+                            <div *ngIf="submitted && ft.cantidad.errors" class="invalid-feedback">
+                                    <div *ngIf="ft.cantidad.errors.required">La cantidad de turistas es obligatorio</div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" > Enviar</button>
+                        <button type="button" class="btn btn-default" (click)="limpiar()">Limpiar</button>
+                    </form>
                 </div>
-
-                <div class="form-group has-danger">
-                    <label class="form-control-label" for="inputError">Input with danger</label>
-                    <input type="text" class="form-control form-control-danger" id="inputError">
-                </div>
-
-            </form>
-
-            <h4>Input Groups</h4>
-
-            <form role="form">
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">@</span>
-                    </div>
-                    <!-- <span class="input-group-addon">@</span> -->
-                    <input type="text" class="form-control" placeholder="Username">
-                </div>
-
-                <div class="form-group input-group">
-                    <input type="text" class="form-control">
-                    <div class="input-group-append">
-                        <span class="input-group-text">.00</span>
-                    </div>
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-eur"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Font Awesome Icon">
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">$</span>
-                    </div>
-                    <input type="text" class="form-control">
-                    <div class="input-group-append">
-                        <span class="input-group-text">.00</span>
-                    </div>
-                </div>
-
-                <div class="form-group input-group">
-                    <input type="text" class="form-control">
-                    <div class="input-group-append">
-                        <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-
-            </form>
+            </div>
 
             <p>For complete documentation, please visit <a target="_blank" href="http://v4-alpha.getbootstrap.com/components/forms/">Bootstrap's Form Documentation</a>.</p>
 
