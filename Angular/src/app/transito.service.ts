@@ -29,26 +29,8 @@ export class TransitoService {
   }
 
 
-  borrarInfraccion(infraccion: Infraccion){    
+  borrarInfraccion(infraccion: Infraccion){
     return this.http.delete('http://localhost:8000/'+ infraccion.nro_alta  +'/delete/', this.httpOptions);
   }
-
-
-  /*
-  private headers = new Headers({ 'Content-Type': 'application/json' });
-
-  borrarInfraccion(infraccion: Infraccion): Promise<void> {
-    const url = 'http://localhost:8000/${infraccion.nro_alta}/delete/';
-    return this.http.delete(url, { headers: this.headers })
-      .toPromise()
-      .then(() => null)
-      .catch(this.handleError);
-  }
-
-  private handleError(error: any): Promise<any> {
-     console.error('An error occurred', error);
-     return Promise.reject(error.message || error);
-   }
-   */
 
 }

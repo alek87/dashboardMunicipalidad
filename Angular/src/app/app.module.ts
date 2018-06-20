@@ -9,8 +9,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
-import { TransitoDetailComponent } from './transito-detail/transito-detail.component';
-import { TransitoEditComponent } from './transito-edit/transito-edit.component';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -40,7 +38,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         }),
         AppRoutingModule
     ],
-    declarations: [AppComponent, TransitoDetailComponent, TransitoEditComponent],
+    declarations: [AppComponent],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })

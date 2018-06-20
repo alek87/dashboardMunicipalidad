@@ -119,6 +119,7 @@ export class TransitoCreateComponent implements OnInit {
         this.service.crearInfraccion(value).subscribe(
            data => {
              // refresh the list
+             window.location.reload();
              return true;
            },
            error => {
