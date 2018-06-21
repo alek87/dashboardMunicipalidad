@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <app-transito-create></app-transito-create>
                 </div>
-            </div>        
+            </div>
 
             <!--
             <form role="form">
@@ -146,7 +146,7 @@
             </div>
             <div class="card-body">
                 <form [formGroup]="registerForm2" (ngSubmit)="onSubmit(registerForm2.value)">
-                
+
                     <div class="form-group">
                         <label class="form-control-label" for="inputSuccess">Mes</label>
                         <input type="text" class="form-control form-control-success" formControlName="Mes" id="inputSuccess" [ngClass]="{ 'is-invalid': submitted && f.Mes.errors }" placeholder="Mes">
@@ -154,7 +154,7 @@
                                 <div *ngIf="f.Mes.errors.required">El nombre del mes es obligatorio</div>
                         </div>
                     </div>
-    
+
                     <div class="form-group">
                         <label class="form-control-label" for="inputWarning">Monto del servicio</label>
                         <input type="number" class="form-control form-control-warning" formControlName="Monto" id="inputWarning" [ngClass]="{ 'is-invalid': submitted && f.Monto.errors }" placeholder="0.00">
@@ -162,7 +162,7 @@
                                 <div *ngIf="f.Monto.errors.required">El valor del monto es obligatorio</div>
                         </div>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary" > Enviar</button>
                     <button type="button" class="btn btn-default" (click)="limpiar()">Limpiar</button>
                 </form>
@@ -171,7 +171,7 @@
 
 
         </div>
-        
+
 
         <div class="col-lg-6">
             <div class="card mb-3">
@@ -180,7 +180,7 @@
                 </div>
                 <div class="card-body">
                     <form [formGroup]="registerFormT" (ngSubmit)="onSubmitT(registerFormT.value)">
-                    
+
                         <div class="form-group">
                             <label class="form-control-label" for="inputSuccess">Mes</label>
                             <input type="text" class="form-control form-control-success" formControlName="mes" id="inputSuccess" [ngClass]="{ 'is-invalid': submitted && ft.mes.errors }" placeholder="Mes">
@@ -188,7 +188,7 @@
                                     <div *ngIf="ft.mes.errors.required">El nombre del mes es obligatorio</div>
                             </div>
                         </div>
-        
+
                         <div class="form-group">
                             <label class="form-control-label" for="inputWarning">Cantidad de turistas</label>
                             <input type="number" class="form-control form-control-warning" formControlName="cantidad" id="inputWarning" [ngClass]="{ 'is-invalid': submitted && ft.cantidad.errors }" placeholder="0">
@@ -196,17 +196,14 @@
                                     <div *ngIf="ft.cantidad.errors.required">La cantidad de turistas es obligatorio</div>
                             </div>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary" > Enviar</button>
                         <button type="button" class="btn btn-default" (click)="limpiar()">Limpiar</button>
                     </form>
                 </div>
             </div>
 
-            <p>For complete documentation, please visit <a target="_blank" href="http://v4-alpha.getbootstrap.com/components/forms/">Bootstrap's Form Documentation</a>.</p>
-
         </div>
-    
 
     </div>
 </div>

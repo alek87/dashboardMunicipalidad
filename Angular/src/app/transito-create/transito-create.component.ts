@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   template: `
     <div class="row">
         <div class="col-lg-6">
-          <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)" >
             <div class="form-group">
                 <label>N° de Alta</label>
                 <input type="number" formControlName="nro_alta" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nro_alta.errors }" />
@@ -71,6 +71,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
               <button [disabled]="loading" class="btn btn-primary">Registrar</button>
             </div>
           </form>
+
+          <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
+          
         </div>
       </div>
   `,
@@ -79,6 +82,8 @@ export class TransitoCreateComponent implements OnInit {
 
   registerForm: FormGroup;
   submitted = false;
+  alerts: Array<any> = [];
+
   items = [
     {value:'A', name:"Ciclomotores y Motocicletas"},
     {value:'B', name:"Automoviles"},
@@ -103,6 +108,7 @@ export class TransitoCreateComponent implements OnInit {
         });
   }
 
+
   // convenience getter for easy access to form fields
    get f() { return this.registerForm.controls; }
 
@@ -112,13 +118,25 @@ export class TransitoCreateComponent implements OnInit {
         // stop here if form is invalid
         if (this.registerForm.invalid) {
             return;
+        } else {
+
+          this.alerts.push(
+              {
+                  id: 1,
+                  type: 'success',
+                  message: `infracción Creada`
+              },);
+
+           this.registerForm.reset();
+           this.submitted = false;
+
         }
 
 
         this.service.crearInfraccion(value).subscribe(
            data => {
              // refresh the list
-             window.location.reload();
+             //window.location.reload();
              return true;
            },
            error => {
@@ -126,6 +144,11 @@ export class TransitoCreateComponent implements OnInit {
            }
         );
 
+    }
+
+    public closeAlert(alert: any) {
+        const index: number = this.alerts.indexOf(alert);
+        this.alerts.splice(index, 1);
     }
 
 }
