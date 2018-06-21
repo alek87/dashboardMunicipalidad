@@ -8,10 +8,11 @@ import { PageHeaderModule } from '../../shared';
 
 import { LimpiezaComponent } from '../../limpieza/limpieza.component';
 import { LimpiezaService } from '../../limpieza.service';
+import { TuristaService } from '../../turista.service';
 
 @NgModule({
     imports: [CommonModule, Ng2Charts, ChartsRoutingModule, PageHeaderModule],
     declarations: [ChartsComponent, LimpiezaComponent],
-    providers: [LimpiezaService]
+    providers: [LimpiezaService,TuristaService]
 })
 export class ChartsModule {}

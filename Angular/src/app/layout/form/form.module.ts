@@ -6,10 +6,11 @@ import { PageHeaderModule } from './../../shared';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TransitoCreateComponent } from '../../transito-create/transito-create.component';
 import { LimpiezaService } from '../../limpieza.service';
+import { TuristaService } from '../../turista.service';
 
 @NgModule({
     imports: [CommonModule, FormRoutingModule, PageHeaderModule, FormsModule, ReactiveFormsModule],
     declarations: [FormComponent, TransitoCreateComponent],
-    providers: [LimpiezaService]
+    providers: [LimpiezaService,TuristaService]
 })
 export class FormModule {}
