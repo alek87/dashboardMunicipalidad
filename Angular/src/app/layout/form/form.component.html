@@ -13,40 +13,6 @@
                     <app-transito-create></app-transito-create>
                 </div>
             </div>
-
-           
-
-        <div class="card mb-3">
-            <div class="card-header">
-                Nuevo servicio de limpieza
-            </div>
-            <div class="card-body">
-                <form [formGroup]="registerForm2" (ngSubmit)="onSubmit(registerForm2.value)">
-
-                    <div class="form-group">
-                        <label class="form-control-label" for="inputSuccess">Mes</label>
-                        <input type="text" class="form-control form-control-success" formControlName="Mes" id="inputSuccess" [ngClass]="{ 'is-invalid': submitted && f.Mes.errors }" placeholder="Mes">
-                        <div *ngIf="submitted && f.Mes.errors" class="invalid-feedback">
-                                <div *ngIf="f.Mes.errors.required">El nombre del mes es obligatorio</div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-control-label" for="inputWarning">Monto del servicio</label>
-                        <input type="number" class="form-control form-control-warning" formControlName="Monto" id="inputWarning" [ngClass]="{ 'is-invalid': submitted && f.Monto.errors }" placeholder="0.00">
-                        <div *ngIf="submitted && f.Monto.errors" class="invalid-feedback">
-                                <div *ngIf="f.Monto.errors.required">El valor del monto es obligatorio</div>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" > Enviar</button>
-                    <button type="button" class="btn btn-default" (click)="limpiar()">Limpiar</button>
-                </form>
-                <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
-            </div>
-        </div>
-
-
         </div>
 
 
@@ -71,6 +37,38 @@
                             <input type="number" class="form-control form-control-warning" formControlName="cantidad" id="inputWarning" [ngClass]="{ 'is-invalid': submitted && ft.cantidad.errors }" placeholder="0">
                             <div *ngIf="submitted && ft.cantidad.errors" class="invalid-feedback">
                                     <div *ngIf="ft.cantidad.errors.required">La cantidad de turistas es obligatorio</div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" > Enviar</button>
+                        <button type="button" class="btn btn-default" (click)="limpiar()">Limpiar</button>
+                    </form>
+                    <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    Nuevo servicio de limpieza
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="registerForm2" (ngSubmit)="onSubmit(registerForm2.value)">
+
+                        <div class="form-group">
+                            <label class="form-control-label" for="inputSuccess">Mes</label>
+                            <input type="text" class="form-control form-control-success" formControlName="Mes" id="inputSuccess" [ngClass]="{ 'is-invalid': submitted && f.Mes.errors }" placeholder="Mes">
+                            <div *ngIf="submitted && f.Mes.errors" class="invalid-feedback">
+                                    <div *ngIf="f.Mes.errors.required">El nombre del mes es obligatorio</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label" for="inputWarning">Monto del servicio</label>
+                            <input type="number" class="form-control form-control-warning" formControlName="Monto" id="inputWarning" [ngClass]="{ 'is-invalid': submitted && f.Monto.errors }" placeholder="0.00">
+                            <div *ngIf="submitted && f.Monto.errors" class="invalid-feedback">
+                                    <div *ngIf="f.Monto.errors.required">El valor del monto es obligatorio</div>
                             </div>
                         </div>
 
