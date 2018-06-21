@@ -16,6 +16,7 @@ export class FormComponent implements OnInit {
     registerFormT: FormGroup;
     submitted = false;
     active = true;
+    alerts: Array<any> = [];
 
     constructor(private service: LimpiezaService, private serviceT: TuristaService, private formBuilder: FormBuilder) {}
 
@@ -28,7 +29,19 @@ export class FormComponent implements OnInit {
         // stop here if form is invalid
         if (this.registerForm2.invalid) {
             return;
-        }
+        }else {
+
+            this.alerts.push(
+                {
+                    id: 1,
+                    type: 'success',
+                    message: `Servicio Creado con éxito!`
+                },);
+  
+             this.registerForm2.reset();
+             this.submitted = false;
+  
+          }
 
 
         this.service.agregar_servicio(value).subscribe(
@@ -43,13 +56,27 @@ export class FormComponent implements OnInit {
 
     }
 
+
+
     onSubmitT(value) {
         this.submitted = true;
 
         // stop here if form is invalid
         if (this.registerFormT.invalid) {
             return;
-        }
+        }else {
+
+            this.alerts.push(
+                {
+                    id: 1,
+                    type: 'success',
+                    message: `Registro Creado con éxito!`
+                },);
+  
+             this.registerFormT.reset();
+             this.submitted = false;
+  
+          }
 
 
         this.serviceT.agregar_registro(value).subscribe(
@@ -69,6 +96,11 @@ export class FormComponent implements OnInit {
    //     Manta:"";
         this.active=false;
         setTimeout(() => this.active = true, 0);
+    }
+
+    public closeAlert(alert: any) {
+        const index: number = this.alerts.indexOf(alert);
+        this.alerts.splice(index, 1);
     }
 
     ngOnInit() {
