@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TransitoService} from '../transito.service';
 import {Infraccion} from '../infraccion';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-transito',
@@ -25,8 +26,9 @@ import {Infraccion} from '../infraccion';
                     <td align="center"> {{ infracion.clase_vehiculo }} </td>
                     <td> {{ infracion.descripcion }} </td>
                     <td style="text-align:center;">
+                      <button class="btn btn-warning" (click)="actualizarInfraccion(infracion)"> <i class="fa fa-pencil"></i></button>
                       <button class="btn btn-danger" (click)="borrarInfraccion(infracion); $event.stopPropagation()"> <i class="fa fa-trash"></i></button>
-                    </td>                    
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -45,7 +47,7 @@ export class TransitoComponent implements OnInit {
 
   selectedInfraccion: Infraccion;
 
-  constructor(private service: TransitoService) { }
+  constructor(private router: Router, private service: TransitoService) { }
 
   ngOnInit() {
     this.listado_infracciones();
@@ -65,5 +67,12 @@ export class TransitoComponent implements OnInit {
         if (this.selectedInfraccion === infraccion) { this.selectedInfraccion = null; }
       });
   }
+
+  public actualizarInfraccion(infraccion: Infraccion): void {
+    localStorage.removeItem("editInfraccionID");
+    localStorage.setItem("editInfraccionID", infraccion.nro_alta.toString());
+    this.router.navigate(['edit-transito/infraccion']);
+  };
+
 
 }

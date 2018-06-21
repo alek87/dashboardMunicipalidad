@@ -11,6 +11,7 @@ const routes: Routes = [
     { path: 'access-denied', loadChildren: './access-denied/access-denied.module#AccessDeniedModule' },
     { path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule' },
     //{ path: 'test', loadChildren: './limpieza/limpieza.module#LimpiezaModule' },
+    { path: 'edit-transito', loadChildren: './layout/tables/tables.module#TablesModule' },
     { path: '**', redirectTo: 'not-found' }
 ];
 

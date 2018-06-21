@@ -33,4 +33,14 @@ export class TransitoService {
     return this.http.delete('http://localhost:8000/'+ infraccion.nro_alta  +'/delete/', this.httpOptions);
   }
 
+  actualizarInfraccion(infraccion: Infraccion){
+    return this.http.put('http://localhost:8000/'+infraccion.nro_alta+'/edit/', infraccion);
+  }
+
+
+  getInfraccion(nro_alta: number) {
+    return this.http.get('http://localhost:8000/'+ nro_alta  +'/edit/', this.httpOptions);
+  }
+
+
 }
