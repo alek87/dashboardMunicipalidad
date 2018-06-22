@@ -8,14 +8,21 @@
                 <table class="card-body table table-hover table-bordered">
                     <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Mes</th>
-                        <th>Visitantes ($)</th>
+                        <th>Presupuesto ($)</th>
+                        <th>Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
-                        <tr >
-                            <td>"Hola"</td>
-                            <td>"Argentina"</td>
+                        <tr *ngFor="let list of listado" >
+                            <td>{{list.id}}</td>
+                            <td>{{list.Mes}}</td>
+                            <td>{{list.Monto}}</td>
+                            <td>
+                                    <button class="btn btn-warning" (click)="actualizarServicio(list.id)"> <i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger" (click)="borrarServicio(list.id); $event.stopPropagation()"> <i class="fa fa-trash"></i></button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
