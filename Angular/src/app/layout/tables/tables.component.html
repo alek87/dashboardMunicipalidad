@@ -30,6 +30,33 @@
         </div>
 
         <app-transito></app-transito>
-
+    </div>
+    <div class="row">
+        <div class="col col-xl-6 col-lg-12">
+            <div class="card mb-3">
+                <div class="card-header">Registro de turismo</div>
+                <table class="card-body table table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Mes</th>
+                        <th>Cantidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let lista of turistas" >
+                            <td>{{lista.id}}</td>
+                            <td>{{lista.mes}}</td>
+                            <td>{{lista.cantidad}}</td>
+                            <td>
+                                    <button class="btn btn-warning" (click)="actualizarServicioT(lista.id)"> <i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger" (click)="borrarServicioT(lista.id); $event.stopPropagation()"> <i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>

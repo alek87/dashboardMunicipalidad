@@ -36,13 +36,8 @@ export class DashboardComponent implements OnInit {
             {
                 id: 1,
                 type: 'success',
-                message: `Pendiente de implementar o borrar`
+                message: `Aplicacion desarrollada en Angular que consume 3 distintas API'S (desarrolladas con: Django-Laravel-RubyOnRails)`
             },
-            {
-                id: 2,
-                type: 'warning',
-                message: `Pendiente de implementar o borrar (dashboard.component.ts)`
-            }
         );
     }
 

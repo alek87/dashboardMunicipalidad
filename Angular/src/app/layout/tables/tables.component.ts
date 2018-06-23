@@ -25,6 +25,7 @@ export class TablesComponent implements OnInit {
 
     ngOnInit() {
         this.listadoL();
+        this.listadoT();
       }
     
       public  listadoL(){
@@ -32,6 +33,12 @@ export class TablesComponent implements OnInit {
               this.listado  =  data;
           });
       }
+
+      public  listadoT(){
+        this.serviceT.listado_turista().subscribe((data:  Array<object>) => {
+            this.turistas  =  data;
+        });
+    }
 
       public borrarServicio(id){
         this.service.borrar_servicio(id).subscribe(
@@ -45,16 +52,31 @@ export class TablesComponent implements OnInit {
          );
       }
 
+      public borrarServicioT(id){
+        this.serviceT.borrar_registro(id).subscribe(
+            data => {
+              alert("Borrado exitoso!");
+              return true;
+            },
+            error => {
+              console.error("Error al eliminar el registro!");
+            }
+         );
+      }
+
       
       public actualizarServicio(id){
 
         localStorage.removeItem("id");
         localStorage.setItem("id", id.toString());
         this.router.navigate(['edit-limpieza/limpieza']);
-          //enviar a un formulario, el cual toma el id para buscar el elemento
-          //y muestra los datos, luego de los cambios hace el llamado a put, con
-          //el id y el cuerpo de los datos
-        
+      }
+
+      public actualizarServicioT(idT){
+
+        localStorage.removeItem("identificador");
+        localStorage.setItem("identificador", idT.toString());
+        this.router.navigate(['edit-turista/turista']);
       }
 
      /* 

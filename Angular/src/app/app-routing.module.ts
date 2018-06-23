@@ -13,6 +13,8 @@ const routes: Routes = [
     //{ path: 'test', loadChildren: './limpieza/limpieza.module#LimpiezaModule' },
     { path: 'edit-transito', loadChildren: './layout/tables/tables.module#TablesModule' },
     { path: 'edit-limpieza', loadChildren: './layout/tables/tables.module#TablesModule' },
+
+    { path: 'edit-turista', loadChildren: './layout/tables/tables.module#TablesModule' },
     { path: '**', redirectTo: 'not-found' }
 ];
 
