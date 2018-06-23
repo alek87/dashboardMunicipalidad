@@ -4,6 +4,7 @@ import {Infraccion} from '../infraccion';
 import {Router} from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {first} from "rxjs/operators";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-transito-edit',
@@ -25,7 +26,7 @@ export class TransitoEditComponent implements OnInit {
  ];
 
 
- constructor(private formBuilder: FormBuilder,private router: Router, private service: TransitoService) { }
+ constructor(private _location: Location, private formBuilder: FormBuilder,private router: Router, private service: TransitoService) { }
 
  ngOnInit() {
    let transaccionId = localStorage.getItem("editInfraccionID");
@@ -62,5 +63,9 @@ export class TransitoEditComponent implements OnInit {
            console.log(error);
          });
  }
+
+ volver() {
+      this._location.back();
+    }
 
 }

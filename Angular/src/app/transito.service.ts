@@ -19,27 +19,27 @@ export class TransitoService {
   constructor (private http: HttpClient) { }
 
   listado_infracciones(){
-    return this.http.get('http://localhost:8000/');
+    return this.http.get('http://localhost:8002/');
   }
 
 
   crearInfraccion(infraccion){
     let body = JSON.stringify(infraccion);
-    return  this.http.post('http://localhost:8000/create/', body, this.httpOptions);
+    return  this.http.post('http://localhost:8002/create/', body, this.httpOptions);
   }
 
 
   borrarInfraccion(infraccion: Infraccion){
-    return this.http.delete('http://localhost:8000/'+ infraccion.nro_alta  +'/delete/', this.httpOptions);
+    return this.http.delete('http://localhost:8002/'+ infraccion.nro_alta  +'/delete/', this.httpOptions);
   }
 
   actualizarInfraccion(infraccion: Infraccion){
-    return this.http.put('http://localhost:8000/'+infraccion.nro_alta+'/edit/', infraccion);
+    return this.http.put('http://localhost:8002/'+infraccion.nro_alta+'/edit/', infraccion);
   }
 
 
   getInfraccion(nro_alta: number) {
-    return this.http.get('http://localhost:8000/'+ nro_alta  +'/edit/', this.httpOptions);
+    return this.http.get('http://localhost:8002/'+ nro_alta  +'/edit/', this.httpOptions);
   }
 
 
