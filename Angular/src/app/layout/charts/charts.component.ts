@@ -44,31 +44,49 @@ export class ChartsComponent implements OnInit {
      //Grafico de anillo
      
     public doughnutChartLabels: string[] = [
-        'Barrido',
-        'Recoleccion de basura',
-        'Desmalezamiento'
+        'ene',
+        'feb',
+        'mar',
+        'abr',
+        'may',
+        'jun',
+        'jul',
+        'ago',
+        'sep',
+        'oct',
+        'nov',
+        'dic'
     ];
 
     //public doughnutChartLabels: any[] = ;
 
-    public doughnutChartData: number[] = [20, 45, 35];
+    public doughnutChartData: number[] = [];
     //public doughnutChartData: number[] = this.monto;
     public doughnutChartType: string = 'doughnut';
 
     // Radar
     public radarChartLabels: string[] = [
-        'Eating',
-        'Drinking',
-        'Sleeping',
-        'Designing',
-        'Coding',
-        'Cycling',
-        'Running'
+        'ene',
+        'feb',
+        'mar',
+        'abr',
+        'may',
+        'jun',
+        'jul',
+        'ago',
+        'sep',
+        'oct',
+        'nov',
+        'dic'
     ];
+    /*
     public radarChartData: any = [
         { data: [65, 59, 90, 81, 56, 55, 40], label: 'Series A' },
         { data: [28, 48, 40, 19, 96, 27, 100], label: 'Series B' }
     ];
+    */
+   public radarChartData: any = []
+
     public radarChartType: string = 'radar';
 
     // Grafico de torta
@@ -142,25 +160,16 @@ export class ChartsComponent implements OnInit {
     }
 
     public randomize(): void {
-        // Only Change 3 values
-        const data = [
-            Math.round(Math.random() * 100),
-            59,
-            80,
-            Math.random() * 100,
-            56,
-            Math.random() * 100,
-            40
-        ];
-        const clone = JSON.parse(JSON.stringify(this.barChartData));
-        clone[0].data = data;
-        this.barChartData = clone;
-        /**
-         * (My guess), for Angular to recognize the change in the dataset
-         * it has to change the dataset variable directly,
-         * so one way around it, is to clone the data, change it and then
-         * assign it;
-         */
+        this.service.listado_limpieza().subscribe((data:  Array<any>) => {
+            var montoLimpieza = data.map(item=>item.Monto);
+
+            this.serviceT.listado_turista().subscribe((data:  Array<any>) => {
+                var cantidadTuristas = data.map(item=>item.cantidad);
+            //console.log(l);
+            this.barChartData.push({data: montoLimpieza, label: 'Presupuesto utilizado en limpieza' },{data: cantidadTuristas, label: 'Cantidad de turistas' });
+            });
+        });
+        
     }
 
     constructor(private service: LimpiezaService, private serviceT: TuristaService) {}
@@ -173,6 +182,7 @@ export class ChartsComponent implements OnInit {
                 var cantidadTuristas = data.map(item=>item.cantidad);
             //console.log(l);
             this.barChartData.push({data: montoLimpieza, label: 'Presupuesto utilizado en limpieza' },{data: cantidadTuristas, label: 'Cantidad de turistas' });
+            this.radarChartData.push({data:montoLimpieza,label:"Presupuesto en pesos"});
         
             
             });

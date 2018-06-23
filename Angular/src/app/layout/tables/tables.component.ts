@@ -24,9 +24,11 @@ export class TablesComponent implements OnInit {
 
 
     ngOnInit() {
+      //this.updateData(this.urlEmployee);
         this.listadoL();
         this.listadoT();
       }
+
     
       public  listadoL(){
           this.service.listado_limpieza().subscribe((data:  Array<object>) => {
@@ -44,6 +46,7 @@ export class TablesComponent implements OnInit {
         this.service.borrar_servicio(id).subscribe(
             data => {
               alert("Borrado exitoso!");
+              window.location.reload();
               return true;
             },
             error => {
@@ -56,6 +59,7 @@ export class TablesComponent implements OnInit {
         this.serviceT.borrar_registro(id).subscribe(
             data => {
               alert("Borrado exitoso!");
+              window.location.reload();
               return true;
             },
             error => {
