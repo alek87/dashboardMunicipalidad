@@ -28,5 +28,18 @@ export class LimpiezaService {
 
   }
 
+  borrar_servicio(id){
+    //build header options
+    //let body = JSON.stringify(service);
+    return  this.http.delete('http://localhost:8000/api/presupuestos/'+id,this.httpOptions);
+
+
+  }
+
+  editar_servicio(id,datos){
+    let body = JSON.stringify(datos);
+    return this.http.put('http://localhost:8000/api/presupuestos/'+id, body, this.httpOptions);
+  }
+
 
 }

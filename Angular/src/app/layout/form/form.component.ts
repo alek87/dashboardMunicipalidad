@@ -91,12 +91,7 @@ export class FormComponent implements OnInit {
 
     }
 
-    limpiar() {
-   //     this.registerForm2.: "";
-   //     Manta:"";
-        this.active=false;
-        setTimeout(() => this.active = true, 0);
-    }
+
 
     public closeAlert(alert: any) {
         const index: number = this.alerts.indexOf(alert);

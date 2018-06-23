@@ -41,7 +41,6 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary" > Enviar</button>
-                        <button type="button" class="btn btn-default" (click)="limpiar()">Limpiar</button>
                     </form>
                     <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
                 </div>
@@ -73,7 +72,6 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary" > Enviar</button>
-                        <button type="button" class="btn btn-default" (click)="limpiar()">Limpiar</button>
                     </form>
                     <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
                 </div>
