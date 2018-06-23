@@ -18,7 +18,7 @@
                   <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
                       <div class="form-group">
                           <label>Id</label>
-                          <input type="text" formControlName="id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.id.errors }" />
+                          <input type="text" formControlName="id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.id.errors }" readonly/>
                           <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
                               <div *ngIf="f.id.errors.required"></div>
                           </div>

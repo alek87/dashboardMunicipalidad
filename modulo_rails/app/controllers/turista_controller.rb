@@ -10,7 +10,7 @@ class TuristaController < ApplicationController
 
   # GET /turista/1
   def show
-    render json: @turistum
+    render json: @turista
   end
 
   # POST /turista
