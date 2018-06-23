@@ -28,5 +28,22 @@ export class TuristaService {
 
   }
 
+  borrar_registro(id){
+    //build header options
+    //let body = JSON.stringify(service);
+    return  this.http.delete('http://localhost:3000/turista/'+id,this.httpOptions);
+
+
+  }
+
+  editar_registro(id,datos){
+    let body = JSON.stringify(datos);
+    return this.http.put('http://localhost:3000/turista/'+id, body, this.httpOptions);
+  }
+
+  get_registroId(id) {
+    return this.http.get('http://localhost:3000/turista/'+id, this.httpOptions);
+  }
+
 
 }

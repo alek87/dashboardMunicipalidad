@@ -1,3 +1,42 @@
-<p>
-  limpieza-edit works!
-</p>
+<app-page-header [heading]="'Tablas'" [icon]="'fa-table'"></app-page-header>
+<div class="row">
+    <div class="col col-xl-6 col-lg-12">
+      <div class="row">        
+          <div class="card mb-3">
+              <div class="card-header">
+                  Editar Servicio
+              </div>
+              <div class="card-body">
+                  <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+                      <div class="form-group">
+                          <label>Id</label>
+                          <input type="text" formControlName="id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.id.errors }" />
+                          <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
+                              <div *ngIf="f.id.errors.required">El id</div>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label>Mes</label>
+                          <input type="text" formControlName="Mes" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Mes.errors }" />
+                          <div *ngIf="submitted && f.Mes.errors" class="invalid-feedback">
+                              <div *ngIf="f.Mes.errors.required">El mes es obligatorio</div>
+                          </div>
+                      </div>
+        
+                      <div class="form-group">
+                        <label>Monto</label>
+                        <input type="number" class="form-control" formControlName="Monto"
+                        placeholder="Monto" [ngClass]="{ 'is-invalid': submitted && f.Monto.errors }" />
+                        <div *ngIf="submitted && f.Monto.errors" class="invalid-feedback">
+                            <div *ngIf="f.Monto.errors.required">El monto es obligatorio</div>
+                        </div>
+                      </div>
+                      <div class="form-group" align="center">
+                        <button [disabled]="loading" class="btn btn-primary">Editar</button>
+                      </div>
+                    </form>
+              </div>
+          </div>    
+      </div>
+    </div>
+</div>

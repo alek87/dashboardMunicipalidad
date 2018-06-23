@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { LimpiezaEditComponent } from './limpieza-edit/limpieza-edit.component';
+import { TuristaEditComponent } from './turista-edit/turista-edit.component';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -39,7 +40,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         }),
         AppRoutingModule
     ],
-    declarations: [AppComponent, LimpiezaEditComponent],
+    declarations: [AppComponent],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })

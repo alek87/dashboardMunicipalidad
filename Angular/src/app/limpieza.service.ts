@@ -41,5 +41,9 @@ export class LimpiezaService {
     return this.http.put('http://localhost:8000/api/presupuestos/'+id, body, this.httpOptions);
   }
 
+  get_limpiezaId(id) {
+    return this.http.get('http://localhost:8000/api/presupuestos/'+id, this.httpOptions);
+  }
+
 
 }

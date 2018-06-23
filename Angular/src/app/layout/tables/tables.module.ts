@@ -8,10 +8,14 @@ import { TransitoComponent } from '../../transito/transito.component';
 import { TransitoEditComponent } from '../../transito-edit/transito-edit.component';
 import { LimpiezaService } from '../../limpieza.service';
 
+import { TuristaService } from '../../turista.service';
+import { TuristaEditComponent } from '../../turista-edit/turista-edit.component';
+import { LimpiezaEditComponent } from '../../limpieza-edit/limpieza-edit.component';
+
 @NgModule({
     imports: [CommonModule, TablesRoutingModule, PageHeaderModule, FormsModule, ReactiveFormsModule],
-    declarations: [TablesComponent, TransitoComponent, TransitoEditComponent],
-    providers: [LimpiezaService]
+    declarations: [TablesComponent, TransitoComponent, TransitoEditComponent,TuristaEditComponent,LimpiezaEditComponent],
+    providers: [LimpiezaService,TuristaService]
 
 })
 export class TablesModule {}
